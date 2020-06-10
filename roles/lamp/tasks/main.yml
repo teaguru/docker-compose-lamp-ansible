@@ -17,7 +17,7 @@
     - name: Copy proj
       copy:
         src: files/index.php
-        dest: /www/
+        dest: /www/crud.dev/
 
     - name: Copy docker-compose.yml
       copy:
