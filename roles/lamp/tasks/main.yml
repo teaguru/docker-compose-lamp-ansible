@@ -1,0 +1,30 @@
+---
+    - name: Copy dockerfile
+      copy:
+        src: files/Dockerfile
+        dest:  /images/php/
+
+    - name: Copy php.ini
+      copy:
+        src: files/php.ini
+        dest:  /images/php/php.ini
+       
+    - name: Copy nginx config
+      copy:
+        src: files/nginx.conf
+        dest:  /hosts/     
+
+    - name: Copy proj
+      copy:
+        src: files/index.php
+        dest: /www/
+
+    - name: Copy docker-compose.yml
+      copy:
+        src: files/Docker-compose.yml
+        dest:  /docker-compose.yml
+
+    - name: Create and start services
+      docker_compose:
+        project_src: /
+      register: output    
