@@ -1182,3 +1182,111 @@ disabled by setting deprecation_warnings=False in ansible.cfg.
 2020-06-10 16:45:16,382 p=27502 u=teadmin n=ansible | ok: [google]
 2020-06-10 16:45:16,386 p=27502 u=teadmin n=ansible | PLAY RECAP ************************************************************************************************************************************************************
 2020-06-10 16:45:16,386 p=27502 u=teadmin n=ansible | google                     : ok=16   changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-11 10:10:11,447 p=9430 u=teadmin n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/teadmin/nginx-compose/roles/git-deploy/tasks/main.yml': line 3, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Installs git
+apt: pkg=git state=installed
+^ here
+
+2020-06-11 10:10:26,701 p=9473 u=teadmin n=ansible | PLAY [all] ************************************************************************************************************************************************************
+2020-06-11 10:10:26,708 p=9473 u=teadmin n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-06-11 10:10:31,883 p=9473 u=teadmin n=ansible | ok: [google]
+2020-06-11 10:10:31,894 p=9473 u=teadmin n=ansible | TASK [git-deploy : Installs git] **************************************************************************************************************************************
+2020-06-11 10:10:34,744 p=9473 u=teadmin n=ansible | fatal: [google]: FAILED! => {"changed": false, "msg": "value of state must be one of: absent, build-dep, fixed, latest, present, got: installed"}
+2020-06-11 10:10:34,747 p=9473 u=teadmin n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-06-11 10:10:34,748 p=9473 u=teadmin n=ansible | google                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-11 10:10:50,185 p=9548 u=teadmin n=ansible | PLAY [all] ************************************************************************************************************************************************************
+2020-06-11 10:10:50,191 p=9548 u=teadmin n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-06-11 10:10:53,807 p=9548 u=teadmin n=ansible | ok: [google]
+2020-06-11 10:10:53,820 p=9548 u=teadmin n=ansible | TASK [git-deploy : Installs git] **************************************************************************************************************************************
+2020-06-11 10:10:57,207 p=9548 u=teadmin n=ansible | ok: [google]
+2020-06-11 10:10:57,212 p=9548 u=teadmin n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-06-11 10:10:57,212 p=9548 u=teadmin n=ansible | google                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-11 10:29:40,295 p=10536 u=teadmin n=ansible | ERROR! conflicting action statements: repo, dest
+
+The error appears to be in '/home/teadmin/nginx-compose/roles/git-deploy/tasks/main.yml': line 5, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Clone a private repository into /opt.
+  ^ here
+
+2020-06-11 10:30:29,836 p=10590 u=teadmin n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/teadmin/nginx-compose/roles/git-deploy/tasks/main.yml': line 5, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+  - name: Clone repo
+  ^ here
+
+2020-06-11 10:30:47,619 p=10624 u=teadmin n=ansible | ERROR! conflicting action statements: repo, dest
+
+The error appears to be in '/home/teadmin/nginx-compose/roles/git-deploy/tasks/main.yml': line 5, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Clone repo
+  ^ here
+
+2020-06-11 10:31:29,877 p=10689 u=teadmin n=ansible | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/teadmin/nginx-compose/roles/git-deploy/tasks/main.yml': line 6, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Clone repo
+    git:
+       ^ here
+
+2020-06-11 10:31:50,252 p=10724 u=teadmin n=ansible | PLAY [all] ************************************************************************************************************************************************************
+2020-06-11 10:31:50,259 p=10724 u=teadmin n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-06-11 10:31:55,514 p=10724 u=teadmin n=ansible | ok: [google]
+2020-06-11 10:31:55,525 p=10724 u=teadmin n=ansible | TASK [git-deploy : Installs git] **************************************************************************************************************************************
+2020-06-11 10:31:58,958 p=10724 u=teadmin n=ansible | ok: [google]
+2020-06-11 10:31:58,971 p=10724 u=teadmin n=ansible | TASK [git-deploy : Clone repo] ****************************************************************************************************************************************
+2020-06-11 10:32:01,938 p=10724 u=teadmin n=ansible | fatal: [google]: FAILED! => {"changed": false, "cmd": "/usr/bin/git clone --origin origin https://github.com/teaguru/crud.git /www/crud.dev", "msg": "fatal: destination path '/www/crud.dev' already exists and is not an empty directory.", "rc": 128, "stderr": "fatal: destination path '/www/crud.dev' already exists and is not an empty directory.\n", "stderr_lines": ["fatal: destination path '/www/crud.dev' already exists and is not an empty directory."], "stdout": "", "stdout_lines": []}
+2020-06-11 10:32:01,940 p=10724 u=teadmin n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-06-11 10:32:01,940 p=10724 u=teadmin n=ansible | google                     : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-11 10:40:23,589 p=11274 u=teadmin n=ansible | PLAY [all] ************************************************************************************************************************************************************
+2020-06-11 10:40:23,596 p=11274 u=teadmin n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-06-11 10:40:28,763 p=11274 u=teadmin n=ansible | ok: [google]
+2020-06-11 10:40:28,777 p=11274 u=teadmin n=ansible | TASK [git-deploy : Installs git] **************************************************************************************************************************************
+2020-06-11 10:40:32,236 p=11274 u=teadmin n=ansible | ok: [google]
+2020-06-11 10:40:32,273 p=11274 u=teadmin n=ansible | TASK [git-deploy : Clone repo] ****************************************************************************************************************************************
+2020-06-11 10:40:35,080 p=11274 u=teadmin n=ansible | fatal: [google]: FAILED! => {"changed": false, "cmd": "/usr/bin/git clone --origin origin https://github.com/teaguru/crud.git /www", "msg": "fatal: destination path '/www' already exists and is not an empty directory.", "rc": 128, "stderr": "fatal: destination path '/www' already exists and is not an empty directory.\n", "stderr_lines": ["fatal: destination path '/www' already exists and is not an empty directory."], "stdout": "", "stdout_lines": []}
+2020-06-11 10:40:35,083 p=11274 u=teadmin n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-06-11 10:40:35,084 p=11274 u=teadmin n=ansible | google                     : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-11 11:26:07,002 p=13598 u=teadmin n=ansible | PLAY [all] ************************************************************************************************************************************************************
+2020-06-11 11:26:07,009 p=13598 u=teadmin n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-06-11 11:26:12,339 p=13598 u=teadmin n=ansible | ok: [google]
+2020-06-11 11:26:12,355 p=13598 u=teadmin n=ansible | TASK [git-deploy : Installs git] **************************************************************************************************************************************
+2020-06-11 11:26:15,848 p=13598 u=teadmin n=ansible | ok: [google]
+2020-06-11 11:26:15,888 p=13598 u=teadmin n=ansible | TASK [git-deploy : Clone repo] ****************************************************************************************************************************************
+2020-06-11 11:26:19,627 p=13598 u=teadmin n=ansible | changed: [google]
+2020-06-11 11:26:19,630 p=13598 u=teadmin n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-06-11 11:26:19,630 p=13598 u=teadmin n=ansible | google                     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-11 11:42:48,138 p=14539 u=teadmin n=ansible | PLAY [all] ************************************************************************************************************************************************************
+2020-06-11 11:42:48,145 p=14539 u=teadmin n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-06-11 11:42:53,442 p=14539 u=teadmin n=ansible | ok: [google]
+2020-06-11 11:42:53,458 p=14539 u=teadmin n=ansible | TASK [git-deploy : Installs git] **************************************************************************************************************************************
+2020-06-11 11:42:56,942 p=14539 u=teadmin n=ansible | ok: [google]
+2020-06-11 11:42:56,981 p=14539 u=teadmin n=ansible | TASK [git-deploy : Clone repo] ****************************************************************************************************************************************
+2020-06-11 11:43:00,466 p=14539 u=teadmin n=ansible | ok: [google]
+2020-06-11 11:43:00,470 p=14539 u=teadmin n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-06-11 11:43:00,471 p=14539 u=teadmin n=ansible | google                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

@@ -1,0 +1,9 @@
+---
+- name: Installs git
+  apt: pkg=git state=latest
+
+- name: Clone repo
+  git:
+    repo: https://github.com/teaguru/crud.git
+    version: master
+    dest: /www/crud.dev

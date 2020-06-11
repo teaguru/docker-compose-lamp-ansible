@@ -14,11 +14,7 @@
         src: files/nginx.conf
         dest:  /hosts/     
 
-    - name: Copy proj
-      copy:
-        src: files/index.php
-        dest: /www/crud.dev/
-
+    
     - name: Copy docker-compose.yml
       copy:
         src: files/Docker-compose.yml
